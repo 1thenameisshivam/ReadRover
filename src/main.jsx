@@ -3,15 +3,21 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
+import Search from "./Pages/Search.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./Pages/Home.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
       {
+        path: "/",
+        element: <Home />,
+      },
+      {
         path: "/search",
-        element: <h1>Search</h1>,
+        element: <Search />,
       },
       {
         path: "/bookself",
