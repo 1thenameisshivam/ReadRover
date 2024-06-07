@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Home = () => {
   return (
     <section className="dark:bg-gray-100 h-[89vh]">
@@ -12,9 +14,12 @@ const Home = () => {
           tales, and new favorites. Your literary journey begins here!
         </p>
         <div className="flex flex-wrap justify-center">
-          <button className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-violet-600 ">
+          <Link
+            to={"/search"}
+            className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-violet-600 "
+          >
             Get started
-          </button>
+          </Link>
           <button className="px-8 py-3 m-2 text-lg border rounded">
             Learn more
           </button>

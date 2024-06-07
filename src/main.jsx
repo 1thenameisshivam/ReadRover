@@ -6,6 +6,7 @@ import "./index.css";
 import Search from "./Pages/Search.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
+import BookShelf from "./Pages/BookShelf.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/bookself",
-        element: <h1>Bookself</h1>,
+        element: <BookShelf />,
       },
     ],
   },

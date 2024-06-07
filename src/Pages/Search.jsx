@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import Card from "../Components/Card";
+import Loader from "../Components/Loader";
 
 const Search = () => {
   const [query, setQuery] = useState("");
   const [books, setBooks] = useState([]);
-
+  const [loader, setLoader] = useState(false);
   useEffect(() => {
     const handler = setTimeout(() => {
       if (query) {
@@ -17,10 +18,12 @@ const Search = () => {
   }, [query]);
 
   const fetchBooks = async () => {
+    setLoader(true);
     const response = await fetch(
       `https://openlibrary.org/search.json?q=${query}&limit=10&page=1`
     );
     const data = await response.json();
+    setLoader(false);
     console.log(data.docs);
     setBooks(data.docs);
   };
@@ -45,10 +48,11 @@ const Search = () => {
           <Card
             key={book.key}
             title={book.title}
-            auther={book.author_name?.[0]}
+            author={book.author_name?.[0]}
             id={book.cover_i}
           />
         ))}
+        {loader && <Loader />}
       </div>
     </div>
   );

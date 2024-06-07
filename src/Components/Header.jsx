@@ -3,12 +3,12 @@ import Logo from "./Logo";
 
 const Header = () => {
   return (
-    <header className="p-2 dark:bg-gray-100 dark:text-gray-800">
-      <div className="container flex justify-between items-center h-16 mx-auto">
+    <header className="p-2">
+      <div className="container flex justify-between flex-wrap items-center h-16 mx-auto">
         <Link to={"/"}>
           <Logo />
         </Link>
-        <ul className="items-stretch hidden space-x-3 md:flex">
+        <ul className="items-stretch space-x-3 flex">
           <li className="flex">
             <Link
               to={"/"}
