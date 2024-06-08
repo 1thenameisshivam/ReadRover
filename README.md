@@ -1,6 +1,6 @@
 # ReadRover
 
-**Live Demo**: [ReadRover Demo](#) _(Dummy link)_
+**Live Demo**: [ReadRover Demo](https://readrover89.netlify.app/) _(link)_
 
 ## About
 
