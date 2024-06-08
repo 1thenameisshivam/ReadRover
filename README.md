@@ -26,10 +26,14 @@ ReadRover is a simple React web application designed for book enthusiasts. It al
 
 To run this project locally, follow these steps:
 
-1. **Clone the Repository**:git clone [repository_url]
+0. **SetUp Folder**:create new file in desktop and open that file in vscode, then open terminal of vscode or you can use shortcut to open terminal : ctrl + shift + ~,and then copy the link provided below and run it.
 
-2. **Install Dependencies**:npm install
+1. **Clone the Repository**:git clone https://github.com/1thenameisshivam/ReadRover.git
+   
+2. **Navigate to folder **:cd ReadRover
 
-3. **Run the Development Server**:npm run dev
+3. **Install Dependencies**:npm i
 
-This command will start the development server and open the application in your default web browser. You can then access the application at `http://localhost:3000`.
+4. **Run the Development Server**:npm run dev
+
+This command will start the development server and open the application in your default web browser. You can then access the application at `http://localhost:5173/`(default port).
