@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
-
+import { useOnline } from "../Hooks/useOnline";
 const Header = () => {
+  const isOnline = useOnline();
   return (
     <header className="p-2">
       <div className="container flex justify-between flex-wrap items-center h-16 mx-auto">
@@ -9,6 +10,7 @@ const Header = () => {
           <Logo />
         </Link>
         <ul className="items-stretch space-x-3 flex">
+          <li>{isOnline ? "🟢 Online" : "🔴 Offline"}</li>
           <li className="flex">
             <Link
               to={"/"}

@@ -11,7 +11,7 @@ const Search = () => {
       if (query) {
         fetchBooks();
       }
-    }, 100);
+    }, 500);
     return () => {
       clearTimeout(handler);
     };
@@ -24,7 +24,6 @@ const Search = () => {
     );
     const data = await response.json();
     setLoader(false);
-    console.log(data.docs);
     setBooks(data.docs);
   };
 

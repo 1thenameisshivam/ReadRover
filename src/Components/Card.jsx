@@ -1,16 +1,41 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 
 const Card = ({ id, title, author }) => {
-  const [wishlist, setWishlist] = useState(
-    JSON.parse(localStorage.getItem("wishlist")) || []
-  );
+  const [isWishlist, setIsWishlist] = useState(false);
+
+  useEffect(() => {
+    checkIfWishlist();
+  }, []);
+
+  const checkIfWishlist = () => {
+    const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    const movieInWishlist = storedWishlist.some(
+      (item) => item.id === parseInt(id)
+    );
+    setIsWishlist(movieInWishlist);
+  };
 
   const addToWishlist = () => {
-    const newBook = { id, title, author };
-    const updatedWishlist = [...wishlist, newBook];
-    setWishlist(updatedWishlist);
-    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+    const movie = {
+      id: id,
+      title: title,
+      author: author,
+    };
+    const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    if (isWishlist) {
+      const updatedWishlist = storedWishlist.filter(
+        (item) => item.id !== movie.id
+      );
+      localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+      setIsWishlist(false);
+    } else {
+      storedWishlist.push(movie);
+      localStorage.setItem("wishlist", JSON.stringify(storedWishlist));
+      setIsWishlist(true);
+    }
   };
 
   return (
@@ -25,10 +50,12 @@ const Card = ({ id, title, author }) => {
       </h2>
       <p className="text-gray-500 text-sm mt-1">{author}</p>
       <button
-        className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md"
+        className={`${
+          isWishlist ? "bg-green-400" : "bg-blue-500"
+        } text-white px-4 py-2 mt-4 rounded-md`}
         onClick={addToWishlist}
       >
-        Add to Wishlist
+        {isWishlist ? "already in Wishlist" : "Add to Wishlist"}
       </button>
     </div>
   );

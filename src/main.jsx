@@ -7,6 +7,7 @@ import Search from "./Pages/Search.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import BookShelf from "./Pages/BookShelf.jsx";
+import Error from "./Pages/Error.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
         element: <BookShelf />,
       },
     ],
+    errorElement: <Error />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
